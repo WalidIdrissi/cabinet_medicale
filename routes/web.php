@@ -23,15 +23,15 @@ Route::delete('/patient/{patient}', PatientController::class .'@destroy')->name(
 Route::post('/patient', PatientController::class .'@store')->name('patient.store');
 Route::get('/patient/{patient}', PatientController::class .'@show')->name('patient.show');
 Route::get('/patient/{patient}/edit', PatientController::class .'@edit')->name('patient.edit');
-//redez_vous
-Route::get('/redez_vous', RendezVousController::class .'@index')->name('redez_vous.index');
-Route::get('/redez_vous/create', RendezVousController::class . '@create')->name('redez_vous.create');
-Route::put('/redez_vous/{redez_vous}', RendezVousController::class .'@update')->name('redez_vous.update');
-Route::get('/redez_vous/{redez_vous}/edit', RendezVousController::class .'@edit')->name('redez_vous.edit');
-Route::delete('/redez_vous/{redez_vous}', RendezVousController::class .'@destroy')->name('redez_vous.destroy');
-Route::post('/redez_vous', RendezVousController::class .'@store')->name('redez_vous.store');
-Route::get('/redez_vous/{redez_vous}', RendezVousController::class .'@show')->name('redez_vous.show');
-Route::get('/redez_vous/{redez_vous}/edit', RendezVousController::class .'@edit')->name('redez_vous.edit');
+//rendez_vous
+Route::get('/rendez_vous', RendezVousController::class .'@index')->name('rendez_vous.index');
+Route::get('/rendez_vous/create', RendezVousController::class . '@create')->name('rendez_vous.create');
+Route::put('/rendez_vous/{rendez_vous}', RendezVousController::class .'@update')->name('rendez_vous.update');
+Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousController::class .'@edit')->name('rendez_vous.edit');
+Route::delete('/rendez_vous/{rendez_vous}', RendezVousController::class .'@destroy')->name('rendez_vous.destroy');
+Route::post('/rendez_vous', RendezVousController::class .'@store')->name('rendez_vous.store');
+Route::get('/rendez_vous/{rendez_vous}', RendezVousController::class .'@show')->name('rendez_vous.show');
+Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousController::class .'@edit')->name('rendez_vous.edit');
 //type_traitement
 Route::get('/type_traitement', TypeTraitementController::class .'@index')->name('type_traitement.index');
 Route::get('/type_traitement/create', TypeTraitementController::class . '@create')->name('type_traitement.create');
