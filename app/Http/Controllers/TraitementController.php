@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Traitement;
 use App\Http\Controllers\Controller;
-use App\Models\Rendez_vous;
+use App\Models\Rendez_vous_medicale;
 use App\Models\Type_traitement;
 use Illuminate\Http\Request;
 
@@ -24,9 +24,9 @@ class TraitementController extends Controller
      */
     public function create()
     {
-        $rendez_vouses = Rendez_vous::all();
+        $Rendez_vous_medicales = Rendez_vous_medicale::all();
         $type_traitements = Type_traitement::all();
-        return view('traitement.create', compact('rendez_vouses', 'type_traitements'));
+        return view('traitement.create', compact('Rendez_vous_medicales', 'type_traitements'));
     }
 
     /**
@@ -35,7 +35,7 @@ class TraitementController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'rendez_vous_id' => 'required|string|max:255',
+            'Rendez_vous_medicale_id' => 'required|string|max:255',
             'date' => 'required|date',
             'type_traitement_id' => 'required|string|max:255',
             'statut_paiement' => 'required|string|max:255',
@@ -57,9 +57,9 @@ class TraitementController extends Controller
      */
     public function edit(Traitement $traitement)
     {
-        $rendez_vouses = Rendez_vous::all();
+        $Rendez_vous_medicales = Rendez_vous_medicale::all();
         $type_traitements = Type_traitement::all();
-        return view('traitement.edit', compact('traitement', 'rendez_vouses', 'type_traitements'));
+        return view('traitement.edit', compact('traitement', 'Rendez_vous_medicales', 'type_traitements'));
     }
 
     /**
@@ -68,13 +68,13 @@ class TraitementController extends Controller
     public function update(Request $request, Traitement $traitement)
     {
         $request->validate([
-            'rendez_vous_id' => 'required|string|max:255',
+            'Rendez_vous_medicale_id' => 'required|string|max:255',
             'date' => 'required|date',
             'type_traitement_id' => 'required|string|max:255',
             'statut_paiement' => 'required|string|max:255',
         ]);
         $traitement->update([
-            'rendez_vous_id' => $request->input('rendez_vous_id'),
+            'Rendez_vous_medicale_id' => $request->input('Rendez_vous_medicale_id'),
             'date' => $request->input('date'),
             'type_traitement_id' => $request->input('type_traitement_id'),
             'statut_paiement' => $request->input('statut_paiement'),

@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Rendez_vous;
+use App\Models\Rendez_vous_medicale;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 
-class RendezVousController extends Controller
+class RendezVousMedicaleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $rendez_vous = Rendez_vous::all();
+        $rendez_vous = Rendez_vous_medicale::all();
         return view('rendez_vous.index', compact('rendez_vous'));
     }
 
@@ -39,14 +39,14 @@ class RendezVousController extends Controller
             'type' => 'required|string|max:255',
             'statut' => 'required|string|max:255',
         ]);
-        Rendez_vous::create($request->all());
+        Rendez_vous_medicale::create($request->all());
         return redirect()->route('rendez_vous.index')->with('success', 'Le rendez_vous a été créé avec succès.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Rendez_vous $rendez_vous)
+    public function show(Rendez_vous_medicale $rendez_vous)
     {
         return view('rendez_vous.show', compact('rendez_vous'));
     }
@@ -54,7 +54,7 @@ class RendezVousController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Rendez_vous $rendez_vous)
+    public function edit(Rendez_vous_medicale $rendez_vous)
     {
         $patients = Patient::all();
         return view('rendez_vous.edit', compact('rendez_vous', 'patients'));
@@ -63,7 +63,7 @@ class RendezVousController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Rendez_vous $rendez_vous)
+    public function update(Request $request, Rendez_vous_medicale $rendez_vous)
     {
         $request->validate([
             'patient_id' => 'required|string|max:255',
@@ -85,7 +85,7 @@ class RendezVousController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Rendez_vous $rendez_vous)
+    public function destroy(Rendez_vous_medicale $rendez_vous)
     {
         $rendez_vous->delete();
         return redirect()->route('rendez_vous.index')->with('supp', 'Le rendez_vous a été supprimé avec succès.');
