@@ -8,7 +8,7 @@ use App\Http\Controllers\DetailOrdonnanceController;
 use App\Http\Controllers\MedicamentController;
 use App\Http\Controllers\OrdonnanceController;
 use App\Http\Controllers\PatientController;
-use App\Http\Controllers\RendezVousController;
+use App\Http\Controllers\RendezVousMedicaleController;
 use App\Http\Controllers\TraitementController;
 use App\Http\Controllers\TypeAnalyseController;
 use App\Http\Controllers\TypeTraitementController;
@@ -24,14 +24,14 @@ Route::post('/patient', PatientController::class .'@store')->name('patient.store
 Route::get('/patient/{patient}', PatientController::class .'@show')->name('patient.show');
 Route::get('/patient/{patient}/edit', PatientController::class .'@edit')->name('patient.edit');
 //rendez_vous
-Route::get('/rendez_vous', RendezVousController::class .'@index')->name('rendez_vous.index');
-Route::get('/rendez_vous/create', RendezVousController::class . '@create')->name('rendez_vous.create');
-Route::put('/rendez_vous/{rendez_vous}', RendezVousController::class .'@update')->name('rendez_vous.update');
-Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousController::class .'@edit')->name('rendez_vous.edit');
-Route::delete('/rendez_vous/{rendez_vous}', RendezVousController::class .'@destroy')->name('rendez_vous.destroy');
-Route::post('/rendez_vous', RendezVousController::class .'@store')->name('rendez_vous.store');
-Route::get('/rendez_vous/{rendez_vous}', RendezVousController::class .'@show')->name('rendez_vous.show');
-Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousController::class .'@edit')->name('rendez_vous.edit');
+Route::get('/rendez_vous', RendezVousMedicaleController::class .'@index')->name('rendez_vous.index');
+Route::get('/rendez_vous/create', RendezVousMedicaleController::class . '@create')->name('rendez_vous.create');
+Route::put('/rendez_vous/{rendez_vous}', RendezVousMedicaleController::class .'@update')->name('rendez_vous.update');
+Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousMedicaleController::class .'@edit')->name('rendez_vous.edit');
+Route::delete('/rendez_vous/{rendez_vous}', RendezVousMedicaleController::class .'@destroy')->name('rendez_vous.destroy');
+Route::post('/rendez_vous', RendezVousMedicaleController::class .'@store')->name('rendez_vous.store');
+Route::get('/rendez_vous/{rendez_vous}', RendezVousMedicaleController::class .'@show')->name('rendez_vous.show');
+Route::get('/rendez_vous/{rendez_vous}/edit', RendezVousMedicaleController::class .'@edit')->name('rendez_vous.edit');
 //type_traitement
 Route::get('/type_traitement', TypeTraitementController::class .'@index')->name('type_traitement.index');
 Route::get('/type_traitement/create', TypeTraitementController::class . '@create')->name('type_traitement.create');
@@ -113,3 +113,12 @@ Route::delete('/cabinet/{cabinet}', CabinetController::class .'@destroy')->name(
 Route::post('/cabinet', CabinetController::class .'@store')->name('cabinet.store');
 Route::get('/cabinet/{cabinet}', CabinetController::class .'@show')->name('cabinet.show');
 Route::get('/cabinet/{cabinet}/edit', CabinetController::class .'@edit')->name('cabinet.edit');
+
+
+// Route::get('/', function (){return view('welcome');});
+// Route::prefix('admin')->middleware('auth')->group(function(){
+//     Route::get('/home', function () {return view('home');});
+//     Route::resource('patients',PatientController::class);
+// });
+// Route::get('/login', function () {return view('login');})->name('login');
+// Route::get('/home', function () {return view('home');})->name('home');
